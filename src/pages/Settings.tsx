@@ -1,5 +1,4 @@
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,6 +15,20 @@ const Settings = () => {
   const [isResetDialogOpen, setIsResetDialogOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const { toast } = useToast();
+
+  // Initialize dark mode from localStorage and system preference
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const shouldBeDark = savedTheme === 'dark' || (!savedTheme && systemPrefersDark);
+    
+    setIsDarkMode(shouldBeDark);
+    if (shouldBeDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, []);
 
   const handleResetDatabase = () => {
     if (resetConfirmText === "reset me") {
@@ -37,7 +50,15 @@ const Settings = () => {
 
   const handleDarkModeToggle = (checked: boolean) => {
     setIsDarkMode(checked);
-    // In a real app, this would toggle the theme
+    
+    if (checked) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+    
     toast({
       title: checked ? "Dark Mode Enabled" : "Light Mode Enabled",
       description: "Theme preference has been updated.",
