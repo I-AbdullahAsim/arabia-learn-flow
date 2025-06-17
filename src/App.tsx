@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Navigation } from "./components/Navigation";
+import { Breadcrumbs } from "./components/Breadcrumbs";
 import Dashboard from "./pages/Dashboard";
 import StudyActivities from "./pages/StudyActivities";
 import StudyActivityDetail from "./pages/StudyActivityDetail";
@@ -26,6 +27,7 @@ const App = () => (
       <BrowserRouter>
         <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
           <Navigation />
+          <Breadcrumbs />
           <main className="container mx-auto px-6 py-8">
             <Routes>
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
