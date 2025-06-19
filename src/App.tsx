@@ -15,6 +15,7 @@ import Groups from "./pages/Groups";
 import GroupDetail from "./pages/GroupDetail";
 import Sessions from "./pages/Sessions";
 import Settings from "./pages/Settings";
+import ArabicLetters from "./pages/ArabicLetters";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,7 +26,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 transition-colors duration-300">
           <Navigation />
           <Breadcrumbs />
           <main className="container mx-auto px-6 py-8">
@@ -39,6 +40,7 @@ const App = () => (
               <Route path="/groups" element={<Groups />} />
               <Route path="/groups/:id" element={<GroupDetail />} />
               <Route path="/sessions" element={<Sessions />} />
+              <Route path="/arabic-letters" element={<ArabicLetters />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
