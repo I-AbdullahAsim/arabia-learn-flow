@@ -28,23 +28,25 @@ const App = () => (
       <BrowserRouter>
         <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 transition-colors duration-300">
           <Navigation />
-          <Breadcrumbs />
-          <main className="container mx-auto px-6 py-8">
-            <Routes>
-              <Route path="/" element={<Navigate to="/dashboard" replace />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/study-activities" element={<StudyActivities />} />
-              <Route path="/study-activities/:id" element={<StudyActivityDetail />} />
-              <Route path="/words" element={<Words />} />
-              <Route path="/words/:id" element={<WordDetail />} />
-              <Route path="/groups" element={<Groups />} />
-              <Route path="/groups/:id" element={<GroupDetail />} />
-              <Route path="/sessions" element={<Sessions />} />
-              <Route path="/arabic-letters" element={<ArabicLetters />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </main>
+          <div className="md:mr-64">
+            <Breadcrumbs />
+            <main className="container mx-auto px-6 py-8">
+              <Routes>
+                <Route path="/" element={<Navigate to="/dashboard" replace />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/study-activities" element={<StudyActivities />} />
+                <Route path="/study-activities/:id" element={<StudyActivityDetail />} />
+                <Route path="/words" element={<Words />} />
+                <Route path="/words/:id" element={<WordDetail />} />
+                <Route path="/groups" element={<Groups />} />
+                <Route path="/groups/:id" element={<GroupDetail />} />
+                <Route path="/sessions" element={<Sessions />} />
+                <Route path="/arabic-letters" element={<ArabicLetters />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </main>
+          </div>
         </div>
       </BrowserRouter>
     </TooltipProvider>
