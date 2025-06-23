@@ -28,7 +28,7 @@ const App = () => (
       <BrowserRouter>
         <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 transition-colors duration-300">
           <Navigation />
-          <div className="md:mr-64">
+          <div className="md:ml-64">
             <Breadcrumbs />
             <main className="container mx-auto px-6 py-8">
               <Routes>

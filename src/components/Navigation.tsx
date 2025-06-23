@@ -56,8 +56,8 @@ export const Navigation = () => {
         </div>
       </nav>
 
-      {/* Desktop Right Sidebar */}
-      <nav className="hidden md:block fixed right-0 top-0 h-full w-64 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-l border-blue-100 dark:border-slate-700 z-40 transition-colors duration-300">
+      {/* Desktop Left Sidebar */}
+      <nav className="hidden md:block fixed left-0 top-0 h-full w-64 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-r border-blue-100 dark:border-slate-700 z-40 transition-colors duration-300">
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="p-6 border-b border-gray-200 dark:border-slate-700">
