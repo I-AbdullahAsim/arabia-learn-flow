@@ -4,8 +4,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { User } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const ProfileSection = () => {
+  const { selectedLanguage } = useLanguage();
+  
   return (
     <Card>
       <CardHeader>
@@ -31,7 +34,7 @@ export const ProfileSection = () => {
           <Input id="email" type="email" placeholder="ahmad@example.com" />
         </div>
         <div>
-          <Label htmlFor="level">Arabic Level</Label>
+          <Label htmlFor="level">{selectedLanguage.name} Level</Label>
           <Select>
             <SelectTrigger>
               <SelectValue placeholder="Select your level" />

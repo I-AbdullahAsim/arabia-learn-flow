@@ -3,6 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { BookOpen, LayoutDashboard, List, Settings, Calendar, Users, Languages } from "lucide-react";
 import { MobileSidebar } from "./MobileSidebar";
+import { LanguageSelector } from "./LanguageSelector";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const navigationItems = [{
   name: "Dashboard",
@@ -25,7 +27,7 @@ const navigationItems = [{
   href: "/sessions",
   icon: Calendar
 }, {
-  name: "Arabic Letters",
+  name: "Language Letters",
   href: "/arabic-letters",
   icon: Languages
 }, {
@@ -36,6 +38,7 @@ const navigationItems = [{
 
 export const Navigation = () => {
   const location = useLocation();
+  const { selectedLanguage } = useLanguage();
   
   return (
     <>
@@ -47,11 +50,12 @@ export const Navigation = () => {
               <MobileSidebar />
               <Link to="/dashboard" className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">ع</span>
+                  <span className="text-white font-bold text-sm">{selectedLanguage.flag}</span>
                 </div>
                 <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Lang Portal</span>
               </Link>
             </div>
+            <LanguageSelector />
           </div>
         </div>
       </nav>
@@ -63,10 +67,13 @@ export const Navigation = () => {
           <div className="p-6 border-b border-gray-200 dark:border-slate-700">
             <Link to="/dashboard" className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">ع</span>
+                <span className="text-white font-bold text-sm">{selectedLanguage.flag}</span>
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Lang Portal</span>
             </Link>
+            <div className="mt-4">
+              <LanguageSelector />
+            </div>
           </div>
           
           {/* Navigation Items */}

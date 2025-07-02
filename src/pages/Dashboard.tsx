@@ -5,14 +5,17 @@ import { Link } from "react-router-dom";
 import { LastStudySession } from "@/components/dashboard/LastStudySession";
 import { StudyProgress } from "@/components/dashboard/StudyProgress";
 import { QuickStats } from "@/components/dashboard/QuickStats";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Dashboard = () => {
+  const { selectedLanguage } = useLanguage();
+  
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Dashboard</h1>
-          <p className="text-gray-600">Welcome back! Continue your Arabic learning journey.</p>
+          <p className="text-gray-600">Welcome back! Continue your {selectedLanguage.name} learning journey.</p>
         </div>
         <Link to="/study-activities">
           <Button size="lg" className="bg-blue-600 hover:bg-blue-700">

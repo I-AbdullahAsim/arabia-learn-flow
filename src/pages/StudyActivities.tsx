@@ -4,8 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { BookOpen, Clock, Users, Calendar, ExternalLink, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const StudyActivities = () => {
+  const { selectedLanguage } = useLanguage();
+  
   const activities = [
     {
       id: 1,
@@ -21,7 +24,7 @@ const StudyActivities = () => {
     {
       id: 2,
       title: "Grammar Fundamentals",
-      description: "Learn essential Arabic grammar rules and structures",
+      description: `Learn essential ${selectedLanguage.name} grammar rules and structures`,
       duration: "30-45 min",
       difficulty: "Intermediate",
       wordsCount: 40,
@@ -32,7 +35,7 @@ const StudyActivities = () => {
     {
       id: 3,
       title: "Conversation Practice",
-      description: "Practice common phrases and conversational Arabic",
+      description: `Practice common phrases and conversational ${selectedLanguage.name}`,
       duration: "20-30 min",
       difficulty: "Advanced",
       wordsCount: 60,
@@ -43,7 +46,7 @@ const StudyActivities = () => {
     {
       id: 4,
       title: "Reading Comprehension",
-      description: "Improve reading skills with Arabic texts",
+      description: `Improve reading skills with ${selectedLanguage.name} texts`,
       duration: "25-35 min",
       difficulty: "Intermediate",
       wordsCount: 35,
@@ -71,7 +74,7 @@ const StudyActivities = () => {
     <div className="space-y-8">
       <div>
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Study Activities</h1>
-        <p className="text-gray-600">Choose an activity to start your Arabic learning session.</p>
+        <p className="text-gray-600">Choose an activity to start your {selectedLanguage.name} learning session.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
